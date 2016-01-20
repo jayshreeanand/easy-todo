@@ -1,3 +1,4 @@
 class Task < ActiveRecord::Base
-  belongs_to :user
+  has_many :list_tasks
+  has_many :lists, through: :list_tasks
 end
