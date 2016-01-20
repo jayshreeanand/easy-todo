@@ -8,16 +8,16 @@ base: &base
 
 development:
   <<: *base
-  database: todo_development
+  database: doer_development
 
 test:
   <<: *base
-  database: todo_test
+  database: doer_test
 
 staging:
   <<: *base
-  database: todo_staging
+  database: doer_staging
 
 production:
   <<: *base
-  database: todo_production
+  database: doer_production
