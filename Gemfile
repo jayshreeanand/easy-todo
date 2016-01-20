@@ -15,6 +15,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3.5'
 
+# Admin
+gem 'activeadmin', github: 'activeadmin'
+
 # Auth
 gem 'devise'
 
