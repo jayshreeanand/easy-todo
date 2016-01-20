@@ -76,4 +76,32 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:        'smtp.mandrillapp.com',
+    port:           '465',
+    authentication: :login,
+    user_name:      ENV['MANDRILL_USERNAME'],
+    password:       ENV['MANDRILL_APIKEY'],
+    domain:         ENV['REMOTE_HOST'],
+    tls:            true
+  }
+
+  # Setup Assets and Mailer correctly
+  config.serve_static_files = true
+  config.action_controller.asset_host = ENV['ASSET_HOST']
+  config.action_mailer.asset_host = ENV['ASSET_HOST']
+  config.action_mailer.default_url_options = { host: ENV['REMOTE_HOST'], port: ENV['REMOTE_PORT'].to_i }
+
+  # Ignore bad email addresses and do not raise email delivery errors.
+  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+  config.action_mailer.raise_delivery_errors = true
+
+  config.middleware.use ExceptionNotification::Rack,
+  email: {
+    email_prefix: "[Todo #{Rails.env.capitalize}] Exception - ",
+    sender_address: %{'Todo' <admin@todo.com>},
+    exception_recipients: %w{dev@todo.com}
+  }
 end
