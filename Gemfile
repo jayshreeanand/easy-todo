@@ -15,6 +15,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3.5'
 
+# Auth
+gem 'devise'
+
 # Misc
 gem 'exception_notification'
 
