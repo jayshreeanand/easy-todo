@@ -24,6 +24,7 @@ gem 'devise'
 # Misc
 gem 'exception_notification'
 gem 'react-rails', '~> 1.5.0'
+gem 'acts_as_list'
 
 group :development do
   gem 'spring'
