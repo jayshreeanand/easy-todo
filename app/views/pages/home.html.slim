@@ -1,0 +1,25 @@
+= render 'layouts/dashboard'
+.col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+  h1.page-header Dashboard
+  .table-responsive
+    table.table.table-striped
+      thead
+        tr
+          th #
+          th Title
+          th Description
+          th Duration
+          th Complete?
+      tbody
+       - @tasks.each do |task|
+         tr
+           td
+             = task.id
+           td
+             = task.title
+           td
+             = task.description
+           td
+             = task.duration
+           td
+             = task.is_complete
